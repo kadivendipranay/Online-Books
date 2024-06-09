@@ -1,15 +1,10 @@
 // src/components/BookItem.js
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import defaultThumbnail from '../assets/default-thumbnail.jpg'; // Import the default image
 import './BookItem.css';
 
 const BookItem = ({ book, addToCart }) => {
-  const [imageError, setImageError] = useState(false);
-
-  const handleImageError = () => {
-    setImageError(true); // Set image error to true if the image fails to load
-  };
+  const defaultThumbnail = 'default-thumbnail.jpg'; // Default image URL
 
   return (
     <motion.div
@@ -18,10 +13,8 @@ const BookItem = ({ book, addToCart }) => {
       whileTap={{ scale: 0.95 }}
     >
       <img
-        src={!imageError && book.volumeInfo.imageLinks?.thumbnail} // Use the thumbnail if no image error
-        onError={handleImageError} // Handle image error
+        src={book.volumeInfo.imageLinks?.thumbnail || defaultThumbnail} // Use default image if thumbnail is not available
         alt={book.volumeInfo.title}
-        onError={() => {this.onerror = null; this.src=defaultThumbnail}}
       />
       <h3>{book.volumeInfo.title}</h3>
       <p>{book.volumeInfo.authors?.join(', ') || 'Unknown Author'}</p>
