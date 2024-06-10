@@ -7,7 +7,7 @@ import CheckoutForm from './pages/CheckoutForm';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Header from './components/Header';
-import Cart from './components/Cart';
+import Footer from './components/Footer'; // Import Footer component
 import './App.css';
 
 function App() {
@@ -22,9 +22,9 @@ function App() {
           <Route path="/checkout" element={<CheckoutForm />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
+      <Footer /> {/* Add Footer component */}
     </Router>
   );
 }
