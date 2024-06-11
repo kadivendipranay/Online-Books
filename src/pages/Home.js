@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import { useBooks } from '../contexts/BookContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Home.css';
+import '../components/BookItem.css'; // Import the BookItem.css
 
 const Home = () => {
   const { books, addToCart, fetchBooks } = useBooks();
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
   const handleSearch = () => {
     fetchBooks(searchTerm);
+  };
+
+  const handleAddToCart = (book) => {
+    addToCart(book);
+    navigate('/shopping-cart'); // Navigate to Shopping Cart page
   };
 
   return (
@@ -32,7 +39,7 @@ const Home = () => {
             <h3>{book.volumeInfo.title}</h3>
             <p>Author: {book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Unknown'}</p>
             <Link to={`/books/${book.id}`} className="details-link">View Details</Link>
-            <button onClick={() => addToCart(book)}>Add to Cart</button>
+            <button onClick={() => handleAddToCart(book)}>Add to Cart</button>
           </div>
         ))}
       </div>

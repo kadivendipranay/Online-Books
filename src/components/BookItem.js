@@ -1,4 +1,3 @@
-// src/components/BookItem.js
 import React from 'react';
 import { motion } from 'framer-motion';
 import './BookItem.css';

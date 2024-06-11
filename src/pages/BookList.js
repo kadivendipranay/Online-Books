@@ -1,5 +1,5 @@
-// src/pages/BookList.js
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import BookItem from '../components/BookItem';
 import SearchBar from '../components/SearchBar';
 import { fetchBooks } from '../api';
@@ -10,6 +10,7 @@ const BookList = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadBooks = async () => {
@@ -38,17 +39,22 @@ const BookList = () => {
     }
   };
 
+  const handleAddToCart = (book) => {
+    addToCart(book);
+    navigate('/shopping-cart'); // Navigate to Shopping Cart page
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div>
+    <div className="book-list-container">
       <h2>Book List</h2>
       <SearchBar onSearch={handleSearch} />
       <div className="book-list">
         {books.map((book) => (
-          <BookItem key={book.id} book={book} addToCart={addToCart} />
+          <BookItem key={book.id} book={book} addToCart={handleAddToCart} />
         ))}
       </div>
     </div>

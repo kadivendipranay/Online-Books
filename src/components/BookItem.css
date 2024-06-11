@@ -1,81 +1,79 @@
 /* src/components/BookItem.css */
 
 .book-item {
-  border: 1px solid #ddd;
-  padding: 1rem;
-  margin: 1rem;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
   text-align: center;
-  border-radius: 8px;
-  transition: box-shadow 0.3s;
-}
-
-.book-item img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-.book-item h3 {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-}
-
-.book-item p {
-  font-size: 1rem;
-  color: #555;
-}
-
-.book-item .book-item-buttons {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 1rem;
-}
-
-.book-item button {
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.book-item .details-button {
-  background-color: #007bff;
-  color: white;
-}
-
-.book-item .details-button:hover {
-  background-color: #0056b3;
-}
-
-.book-item .cart-button {
-  background-color: #28a745;
-  color: white;
-}
-
-.book-item .cart-button:hover {
-  background-color: #218838;
+  background-color: #f9f9f9; /* Light gray background */
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  width: calc(33.333% - 20px); /* Three items per row */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .book-item:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
-@media screen and (max-width: 768px) {
+.book-item img {
+  max-width: 100%; /* Adjusted maximum width */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+  border: 3px solid #fff; /* Add border around images */
+}
+
+.book-item h3 {
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #333; /* Darker title color */
+}
+
+.book-item p {
+  font-size: 0.9em;
+  color: #666; /* Lighter text color */
+  margin-bottom: 10px;
+}
+
+.book-item-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.details-button, .cart-button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff; /* Blue button background */
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-size: 0.9em;
+}
+
+.details-button:hover, .cart-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
   .book-item {
-    padding: 0.5rem;
-    margin: 0.5rem;
+    width: calc(33.333% - 20px); /* Three items per row */
   }
-  
-  .book-item img {
-    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .book-item {
+    width: calc(50% - 20px); /* Two items per row */
   }
-  
-  .book-item h3 {
-    font-size: 1rem;
-  }
-  
-  .book-item p {
-    font-size: 0.8rem;
+}
+
+@media (max-width: 480px) {
+  .book-item {
+    width: calc(100% - 20px); /* One item per row */
   }
 }
