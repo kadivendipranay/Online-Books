@@ -1,3 +1,4 @@
+// src/pages/BookList.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BookItem from '../components/BookItem';
@@ -41,7 +42,7 @@ const BookList = () => {
 
   const handleAddToCart = (book) => {
     addToCart(book);
-    navigate('/shopping-cart'); // Navigate to Shopping Cart page
+    navigate('/shopping-cart');
   };
 
   if (loading) {

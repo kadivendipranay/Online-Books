@@ -1,3 +1,4 @@
+// src/pages/BookDetails.js
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useBooks } from '../contexts/BookContext';
@@ -15,7 +16,7 @@ const BookDetails = () => {
 
   const handleAddToCart = (book) => {
     addToCart(book);
-    navigate('/shopping-cart'); // Navigate to Shopping Cart page
+    navigate('/shopping-cart');
   };
 
   return (

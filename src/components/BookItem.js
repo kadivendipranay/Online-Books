@@ -1,9 +1,11 @@
+// src/components/BookItem.js
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './BookItem.css';
 
 const BookItem = ({ book, addToCart }) => {
-  const defaultThumbnail = 'default-thumbnail.jpg'; // Default image URL
+  const defaultThumbnail = 'default-thumbnail.jpg';
 
   return (
     <motion.div
@@ -12,13 +14,13 @@ const BookItem = ({ book, addToCart }) => {
       whileTap={{ scale: 0.95 }}
     >
       <img
-        src={book.volumeInfo.imageLinks?.thumbnail || defaultThumbnail} // Use default image if thumbnail is not available
+        src={book.volumeInfo.imageLinks?.thumbnail || defaultThumbnail}
         alt={book.volumeInfo.title}
       />
       <h3>{book.volumeInfo.title}</h3>
       <p>{book.volumeInfo.authors?.join(', ') || 'Unknown Author'}</p>
       <div className="book-item-buttons">
-        <button className="details-button">View Details</button>
+        <Link to={`/books/${book.id}`} className="details-button">View Details</Link>
         <button className="cart-button" onClick={() => addToCart(book)}>Add to Cart</button>
       </div>
     </motion.div>

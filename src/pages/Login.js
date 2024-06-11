@@ -1,3 +1,4 @@
+// src/pages/Login.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
@@ -16,7 +17,11 @@ const Login = () => {
       await signInWithEmailAndPassword(auth, email, password);
       navigate('/');
     } catch (error) {
-      setError(error.message);
+      if (error.code === 'auth/operation-not-allowed') {
+        setError('Email/Password authentication is not enabled. Please enable it in your Firebase project.');
+      } else {
+        setError(error.message);
+      }
     }
   };
 

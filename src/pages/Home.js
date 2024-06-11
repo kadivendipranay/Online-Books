@@ -1,8 +1,9 @@
+// src/pages/Home.js
 import React, { useState } from 'react';
 import { useBooks } from '../contexts/BookContext';
 import { Link, useNavigate } from 'react-router-dom';
 import './Home.css';
-import '../components/BookItem.css'; // Import the BookItem.css
+import '../components/BookItem.css';
 
 const Home = () => {
   const { books, addToCart, fetchBooks } = useBooks();
@@ -15,7 +16,7 @@ const Home = () => {
 
   const handleAddToCart = (book) => {
     addToCart(book);
-    navigate('/shopping-cart'); // Navigate to Shopping Cart page
+    navigate('/shopping-cart');
   };
 
   return (

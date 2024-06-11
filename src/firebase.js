@@ -1,20 +1,17 @@
 // src/firebase.js
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDWzjufkCV0_njjLtOKt9wCu6S8CG6SdPM",
-    authDomain: "online-bookstore-5d61a.firebaseapp.com",
-    projectId: "online-bookstore-5d61a",
-    storageBucket: "online-bookstore-5d61a.appspot.com",
-    messagingSenderId: "343021791417",
-    appId: "1:343021791417:web:e706dba29e61f8d4df5368"
-  
+    apiKey: "AIzaSyBRYCqC9zD_wMOTy7zFSGYfK1XHKSCOTkI",
+    authDomain: "online-bookstore-1877d.firebaseapp.com",
+    projectId: "online-bookstore-1877d",
+    storageBucket: "online-bookstore-1877d.appspot.com",
+    messagingSenderId: "273664682083",
+    appId: "1:273664682083:web:64756b1be296b1e216b056"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore(app);
 
-export { auth, db };
+export { auth };

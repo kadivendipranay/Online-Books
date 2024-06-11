@@ -1,3 +1,4 @@
+/* src/pages/Home.css */
 .home-container {
   padding: 20px;
   background-color: #f1f1f1;
@@ -37,7 +38,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 20px; /* Add gap between items */
+  gap: 20px;
 }
 
 /* Media Queries */
